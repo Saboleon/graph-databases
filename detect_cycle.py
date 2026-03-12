@@ -1,7 +1,7 @@
 from data_structures import Graph
 from collections import defaultdict
 
-def _explore_path_directed(graph: Graph, node: str, nodes_status: dict):
+def _explore_path_directed(graph: Graph, node: str, nodes_status: dict) -> bool:
   # return True if cycle is detected, otherwise return False
   if nodes_status[node] == 1: return True
   if nodes_status[node] == 2: return False
@@ -12,7 +12,7 @@ def _explore_path_directed(graph: Graph, node: str, nodes_status: dict):
   nodes_status[node] = 2
   return False
 
-def _has_cycle_directed(graph: Graph):
+def _has_cycle_directed(graph: Graph) -> bool:
   """
   Detects whether a directed graph has a cycle or not. Returns True if it has a cycle, otherwise it returns False.
   """
@@ -23,7 +23,7 @@ def _has_cycle_directed(graph: Graph):
     if _explore_path_directed(graph, node, nodes_status): return True
   return False
 
-def _has_cycle_undirected(graph: Graph):
+def _has_cycle_undirected(graph: Graph) -> bool:
   nodes = graph.get_all_nodes()
   roots = dict()
   for node in nodes: roots[node] = node
@@ -41,7 +41,7 @@ def _has_cycle_undirected(graph: Graph):
 
   return False
 
-def has_cycle(graph: Graph):
+def has_cycle(graph: Graph) -> bool:
   """
   Detects whether a graph has a cycle or not. Returns True if it has a cycle, otherwise it returns False.
   """
