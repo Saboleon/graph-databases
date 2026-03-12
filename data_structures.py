@@ -26,14 +26,14 @@ class Graph:
     if self.is_directed is False:
       self.graph[node2].append((node1, float(edge_weight)))
     
-  def get_neighbors(self, node: str): 
+  def get_neighbors(self, node: str) -> list[tuple[str, float]]: 
     if node in self.graph: return self.graph[node]
     else: return []
   
-  def get_all_nodes(self):
+  def get_all_nodes(self) -> list[str]:
     return list(self.graph.keys())
 
-  def get_edge_list(self):
+  def get_edge_list(self) -> list[tuple[float, str, str]]:
     res = []
     for node1 in self.graph:
       for node2, weight in self.graph[node1]:
