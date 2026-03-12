@@ -14,7 +14,7 @@ class Graph:
   def add_node(self, node_name: str):
     self.graph[node_name] = []
 
-  def add_edge(self, node1: str, node2: str, edge_weight: float | int):
+  def add_edge(self, node1: str, node2: str, edge_weight: float | int = 1.0):
     if node1 in self.graph:
       self.graph[node1].append((node2, float(edge_weight)))
     else:
