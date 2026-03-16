@@ -6,6 +6,12 @@ def topological_sort_bfs(graph: Graph) -> list[str]:
   Topologically sort the nodes of a directed acyclic graph. Return a list of sorted nodes.
   """
   if graph.is_directed is False: raise ValueError("Graph must be directed")
+  # get indegrees for each node
+  # record ones with 0 indegree
+  # remove nodes with 0 indegree one by one and add them to the sorted list
+  # also reduce the indegree for nodes they are connected to
+  # add new nodes with 0 indegree, until all nodes are processed
+  # if nodes with indegree > 0 are left, there is a cycle
   in_degrees = defaultdict(int) 
   edges = graph.get_edge_list() 
   for _, _, n2 in edges: in_degrees[n2] += 1
@@ -29,6 +35,8 @@ def topological_sort_bfs(graph: Graph) -> list[str]:
   return sorted_list
 
 def _explore_path(graph: Graph, node: str, nodes_status, stack: list[str]) -> bool:
+  # must both explore paths and flag cycles
+  # return true if there's a cycle, otherwise false
   if nodes_status[node] == 1: return True
   if nodes_status[node] == 2: return False
   nodes_status[node] = 1
