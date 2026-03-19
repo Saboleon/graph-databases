@@ -34,14 +34,3 @@ def page_rank(graph: Graph, damping_factor=0.85, iterations=100):
     scores = new_scores
   
   return scores 
-    
-graph = Graph(is_directed=True)
-
-graph.add_edge("A", "B", 1)
-graph.add_edge("B", "C", 1)
-graph.add_edge("C", "D", 1)
-graph.add_edge("D", "E", 1)
-graph.add_edge("D", "F", 1)
-graph.add_edge("A", "F", 1)
-
-print(page_rank(graph))

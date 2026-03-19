@@ -62,15 +62,3 @@ def topological_sort_dfs(graph: Graph) -> list[str]:
   
   stack.reverse()
   return stack
-
-graph = Graph(is_directed=True)
-
-graph.add_edge("A", "B", 1)
-graph.add_edge("B", "C", 1)
-graph.add_edge("C", "D", 1)
-graph.add_edge("D", "E", 1)
-graph.add_edge("D", "F", 1)
-graph.add_edge("A", "F", 1)
-
-print(topological_sort_bfs(graph))
-print(topological_sort_dfs(graph))

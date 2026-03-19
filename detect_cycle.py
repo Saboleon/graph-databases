@@ -47,15 +47,3 @@ def has_cycle(graph: Graph) -> bool:
   """
   if graph.is_directed: return _has_cycle_directed(graph)
   return _has_cycle_undirected(graph)
-
-graph = Graph(is_directed=True)
-
-graph.add_edge("A", "B", 1)
-graph.add_edge("B", "C", 1)
-graph.add_edge("C", "D", 1)
-graph.add_edge("D", "E", 1)
-graph.add_edge("D", "F", 1)
-graph.add_edge("A", "F", 1)
-graph.add_edge("F", "A", 1)
-
-print(has_cycle(graph))
